@@ -1,0 +1,105 @@
+/*响应式媒体查询，*/
+
+/*
+ * -----------------------------------------
+ *  320 ~ 480
+ * -----------------------------------------
+ */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+}
+
+/*
+ * -----------------------------------------
+ *  321 ~   宽大于321的设备
+ * -----------------------------------------
+ */
+@media only screen and (min-width: 321px) {
+}
+
+/*
+ * -----------------------------------------
+ *  ~ 320  宽小于320的设备
+ * -----------------------------------------
+ */
+@media only screen and (max-width: 320px) {
+}
+
+/*
+ * -----------------------------------------
+ *  ~ 480  宽小于480的设备
+ * -----------------------------------------
+ */
+@media only screen and (max-width: 480px) {
+}
+
+/* medium screens (excludes iPad & iPhone) */
+/*
+ * -----------------------------------------
+ * 481 ~ 767  宽大于480且小于767的iPad和iPhone
+ * -----------------------------------------
+ */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+}
+
+/* ipads (portrait and landscape) */
+/*
+ * -----------------------------------------
+ * 768 ~ 1024  宽大于480且小于1024的iPad和iPhone
+ * -----------------------------------------
+ */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+}
+
+/* ipads (landscape) */
+/*
+ * -----------------------------------------
+ * 768 ~ 1024  宽大于480且小于1024的iPad和iPhone
+ * -----------------------------------------
+ */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+}
+
+/* ipads (portrait) */
+/*
+ * -----------------------------------------
+ * 768 ~ 1024  宽大于480且小于1024的iPad和iPhone
+ * -----------------------------------------
+ */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+}
+
+/*
+ * -----------------------------------------
+ * 1444 ~ 1824  宽大于1444且小于1824的设备
+ * -----------------------------------------
+ */
+@media only screen and (min-width: 1444px) and (max-width: 1824px) {
+}
+
+/*
+ * -----------------------------------------
+ * 1824 ~  宽大于1824的设备
+ * -----------------------------------------
+ */
+@media only screen and (min-width: 1824px) {
+}
+
+/*
+ * -----------------------------------------
+ * 2224 ~  宽大于2224的设备
+ * -----------------------------------------
+ */
+@media only screen and (min-width: 2224px) {
+}
+
+/* iphone 4 and high pixel ratio (1.5+) devices */
+/*
+ * -----------------------------------------
+ * iphone4 ~ 
+ * -----------------------------------------
+ */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+}
+/* iphone 4 and higher pixel ratio (2+) devices (retina) */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+}

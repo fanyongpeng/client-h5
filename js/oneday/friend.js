@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 od = window.od ||{};
 od.friend = od.friend || {};
-od.host = od.host || "http://localhost";
+od.host = od.host || "http://192.168.8.47";
 od.friend = {
 	onAcceptedClick : function(e) {
 		var tuid = $(this).parents(".his-box").first().attr("data-id");
@@ -90,7 +90,7 @@ od.friend = {
 		$.ajax({
 //			type:"get",
 			dataType: "json",
-			url:"http://localhost/oneday/willow/info/3",
+			url: od.host + "/oneday/willow/info/7",
 			async:true,
 			success: od.friend.onPageLoad,
 			error: function(e){

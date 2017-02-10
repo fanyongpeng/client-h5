@@ -96,6 +96,40 @@ w.closeWaiting=function(){
 	waiting&&waiting.close();
 	waiting=null;
 }
+
+/**
+ * html模板格式化
+ */
+w.formatTemplate=function(dta, tmpl) {  
+    var format = {  
+        name: function(x) {  
+            return x  
+        }  
+    };  
+    return tmpl.replace(/{(\w+)}/g, function(m1, m2) {  
+        if (!m2)  
+            return "";  
+        return (format && format[m2]) ? format[m2](dta[m2]) : dta[m2];  
+    });  
+}  
+/**
+ * 获取地址栏的参数
+ * @param {Object} name
+ */
+w.getUrlParam = function(name)
+{
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+	var r = window.location.search.substr(1).match(reg); 
+	if (r!=null) return unescape(r[2]); return null;
+} 
+/**
+ * 判空
+ * @param {Object} data
+ */
+w.isNull = function(data){ 
+	return (data == "" || data == undefined || data == null) ? true : false; 
+}
+
 // 兼容性样式调整
 var adjust=false;
 function compatibleAdjust(){

@@ -1,0 +1,33 @@
+
+
+.item {
+	margin: 10px auto;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 0 10px;
+    border-bottom: 1px solid #D9D9D9;
+    position: relative;
+}
+
+.user-box .user-img {
+	margin: 10px;
+	width: 20%;
+    height: 0;
+    position: relative;
+    padding-top: 20%;
+	overflow: hidden;
+	float: left;
+}
+
+.user-box .user-img  img {
+	width: 100%; 
+	height: 100%; 
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.user-box .user-u {
+	float: left;
+	width: 60%;
+}

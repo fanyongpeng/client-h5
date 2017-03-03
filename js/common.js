@@ -1059,3 +1059,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 }());
+
+od = window.od ||{};
+od.host = od.host || "http://192.168.8.47";

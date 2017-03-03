@@ -1,55 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-        <title>Title</title>
-        <meta http-equiv="Cache-Control" content="no-siteapp"/>
-        <link rel="stylesheet" type="text/css" href="css/base.css"/>
-        <link rel="stylesheet" type="text/css" href="css/com.css"/>
-        <link rel="stylesheet" type="text/css" href="css/friend.css"/>
-        <link rel="stylesheet" type="text/css" href="css/chat.css"/>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>聊天</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="css/com.css"/>
+		<link rel="stylesheet" type="text/css" href="css/chat.css"/>
         <script type="text/javascript" src="js/common.js" ></script>
 		<script src="js/oneday/trd/NIM_Web_SDK_v3.4.0.js"></script>
     	<script src="js/oneday/trd/NIM_Web_NIM_v3.4.0.js"></script>
-    </head>
-<body>
-	
-	<div class="pageview"  id="view-list">
-		<header class="header">
-			<div id="back" style="visibility:hidden" class="nvbt iback" onclick="plus.runtime.quit()"></div>
-			<div class="nvtt">靠谱</div>
-			<div class="profile" onclick="clicked('about.html','zoom-fade-out',true)">
-				<img src="img/profle.png" />
-			</div>
-		</header>
-		<div class="content" id="J_content">
-		        
-		</div>
-		<div class="nav">
-		    <ul>
-		        <li >
-		            oneday
-		        </li>
-		        <li class="checked-color">
-		        	交流
-		        </li>
-		        <li>
-		        	活动
-		        </li>
-		    </ul>
-		</div>
-	</div>
-	<div class="pageview" style="display: none;" id="view-chat">
-		<header class="header">
-			<div class="back iback" onclick="od.base.forward('view-list','right')"></div>
+	</head>
+	<body>
+		<header id="header">
+			<div id="back" class="back iback" onclick="plus.runtime.quit()"></div>
 			<div class="nvname">abel</div>
 			<div class="profile" onclick="clicked('about.html','zoom-fade-out',true)">
 				<img src="img/profle.png" />
 			</div>
 		</header>
 		<div class="chat-window" >
-			<div class="chat-content" id="chat-cont-10">
+			<div class="chat-content">
 				<div class="chat-recordbox">
 					<div class="user"><img src="img/helloh5.jpg"/></div>
 					<div class="chat-recordtextbg">&nbsp;</div>
@@ -106,27 +76,20 @@
 						<h3>对方的回答：理论上是不可以的，现在中是可以的。1个男人+1个女人=1个家庭</h3>
 					</div>
 				</div>
+				
+				
 			</div>
 		</div>
 		<div class="chat-inputnav">
 			<div class="chat-word">
 				<input class="add-face" id="facial" type="button" title="添加表情" value="" />
-				<input class="messages emotion" autocomplete="off" placeholder="在这里输入文字" id="J_message" />
-				<input class="chat-send" type="button" title="发送" value="发送" />
+				<input class="messages emotion" autocomplete="off" placeholder="在这里输入文字" id="J_message"/>
+				<input class="chat-send" id="J_send" type="button" title="发送" value="发送" />
 			</div>
 		</div>
-	</div>
-	
-	
-	
-
-	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
-	
-	<script type="text/javascript" src="js/oneday/trd/jquery.cookie.min.js" ></script>
-	<script type="text/javascript" src="js/oneday/friend.js" ></script>
-	<script type="text/javascript" src="js/oneday/base.js" ></script>
-	<script type="text/javascript" src="js/oneday/cache.js" ></script>
-	<script type="text/javascript" src="js/oneday/chat.js" ></script>
-</body>
-
+		
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+		<script type="text/javascript" src="js/oneday/trd/jquery.cookie.min.js" ></script>
+        <script type="text/javascript" src="js/oneday/chat.js" ></script>
+	</body>
 </html>

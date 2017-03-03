@@ -1,0 +1,89 @@
+.tab {
+    text-align: left;
+    height: 38px;
+    line-height: 38px;
+    width: 60%;
+    display: -webkit-box;
+    margin: 2% auto;
+    padding: 0;
+}
+.tab li {
+    -webkit-box-flex: 1;
+    font-size: 1rem;
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    padding: 0 2%;
+}
+.border-right {
+	border-right: solid 1px #538312; 
+}
+.current {
+	color: #7DB72F;
+}
+.input-name{
+	width: 80%;
+	margin: 2% auto;
+	background-color: #fff;
+	border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.input-box{
+	width: 80%;
+	margin: 2% auto;
+	background-color: #fff;
+	border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.input-password{
+	width: 80%;
+	margin: 2% auto;
+	background-color: #fff;
+	border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.tab-cont input{
+	width: 80%;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 5px;
+	
+}
+.input-submit{
+	width: 80%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin: 2% auto;
+}
+
+.input-submit input{
+	width: 100%;
+	background-color: #B8D45C;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    color: #fff;
+    font-size: 16px;
+    font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+.input-submit a{
+	padding: 0 2%;
+}
+.input-code .btn-code{
+	width: 40%;
+	float: right;
+	margin: 0;
+	padding: 0;
+	height: 32px;
+	line-height: 32px;
+}
+.input-code .code{
+	width: 50%;
+}

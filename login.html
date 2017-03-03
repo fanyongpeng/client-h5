@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>欢迎</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="css/com.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+        <script type="text/javascript" src="js/common.js" ></script>
+	</head>
+	<body>
+		<header id="header">
+			<div id="back" style="visibility:hidden" class="nvbt iback" onclick="plus.runtime.quit()"></div>
+			<div class="nvtt">欢迎</div>
+		
+		</header>
+		<div class="content">
+			<div class="">
+				<ul class="tab">
+					<li class="border-right current" data-id="J_passbox">密码登录</li>
+					<li  data-id="J_codebox">短信登录</li>
+				</ul>
+				<div class="tab-cont" id="J_passbox">
+					<div class="input-name">
+						<input type="text" placeholder="手机号/账号" name="name"/>
+					</div>
+					<div class="input-password">
+						<input type="password" placeholder="密码" name="password"/>
+					</div>
+					<div class="input-submit">
+						<a href="about.html" >注册账号</a>
+						<a href="about.html" >忘记密码</a>
+					</div>
+					<div class="input-submit">
+						<input type="button" id="J_passsub" value="提交"/>
+					</div>
+				</div>
+				<div class="tab-cont" id="J_codebox" style="display: none;">
+					<div class="input-name">
+						<input type="text" placeholder="手机号" name="phone"/>
+					</div>
+					<div class="input-box input-code">
+						<input type="text" class="code" placeholder="输入验证码" name="code"/>
+						<input type="button" class="btn-code" value="获取验证码"/>
+					</div>
+					<div class="input-submit">
+						<a href="about.html" >注册账号</a>
+						<a href="about.html" >忘记密码</a>
+					</div>
+					<div class="input-submit">
+						<input type="button" value="提交"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+		<script type="text/javascript" src="js/oneday/trd/jquery.cookie.min.js" ></script>
+		<script type="text/javascript" src="js/oneday/login.js" ></script>
+	</body>
+</html>

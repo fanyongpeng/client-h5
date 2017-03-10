@@ -16,12 +16,12 @@ od.chat = {
    		$("#view-chat .chat-send").click(od.chat.onSendClick);
    	},
    	initSDKBridge: function() {
-   	 	var sdktoken = $.cookie('sdktoken'),
-        	userUID = od.uid,
+   	 	var sdktoken = plus.storage.getItem("sdktoken"),
+        	userUID = od.base.getUid(),
         	that = this;
         	
         if(!userUID){
-         	alert("请先登录");
+//       	alert("请先登录");
         	return;
     	}
         if(!sdktoken){
@@ -167,12 +167,12 @@ od.chat = {
    	onRoamingMsgs: function(obj){
    		console.log('收到漫游消息', obj);
     	od.chat.pushMsg(obj.msgs);
-    	od.chat.refreshUI(msg);
+    	od.chat.refreshUI(obj.msgs);
    	},
    	onOfflineMsgs: function(obj){
    		console.log('收到离线消息', obj);
     	od.chat.pushMsg(obj.msgs);
-    	od.chat.refreshUI(msg);
+    	od.chat.refreshUI(obj.msgs);
    	},
    	onMsg: function(msg){
    		console.log('收到消息', msg.scene, msg.type, msg);
@@ -180,20 +180,40 @@ od.chat = {
 	    od.chat.refreshUI(msg);
    	},
    	refreshUI: function(msg) {
-   		switch (msg.type) {
-		    case 'custom':
-		        od.chat.onCustomMsg(msg);
-		        break;
-		    case 'text':
-		        od.chat.refreshTextUI(msg);
-		        break;
-		    case 'notification':
-		        // 处理群通知消息
-//		        onTeamNotificationMsg(msg);
-		        break;
-		    default:
-		        break;
-	    }
+   		if (msg instanceof Array) {
+   			for(var i=0; i < msg.length; i++) {
+   				switch (msg[i].type) {
+				    case 'custom':
+				        od.chat.onCustomMsg(msg[i]);
+				        break;
+				    case 'text':
+				        od.chat.refreshTextUI(msg[i]);
+				        break;
+				    case 'notification':
+				        // 处理群通知消息
+		//		        onTeamNotificationMsg(msg);
+				        break;
+				    default:
+				        break;
+	    		}
+   			}
+   		} else {
+   			switch (msg.type) {
+			    case 'custom':
+			        od.chat.onCustomMsg(msg);
+			        break;
+			    case 'text':
+			        od.chat.refreshTextUI(msg);
+			        break;
+			    case 'notification':
+			        // 处理群通知消息
+	//		        onTeamNotificationMsg(msg);
+			        break;
+			    default:
+			        break;
+	    	}
+   		}
+   		
    	},
    	onCustomMsg: function(obj){
    		console.log('收到onCustomMsg消息', obj);
@@ -233,8 +253,6 @@ od.chat = {
    	}
 }
 
-$(document).ready(function(){
-
-	
+document.addEventListener("plusready",function() {
 	od.chat.inits();
-});
+},false);

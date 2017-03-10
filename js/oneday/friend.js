@@ -1,12 +1,13 @@
 
 $(document).ready(function(){
-	od.friend.inits();
+	document.addEventListener("plusready",function() {
+		od.friend.inits();
+	},false);
 });
 
 
 od = window.od ||{};
 od.friend = od.friend || {};
-od.host = od.host || "http://192.168.8.47";
 od.friend = {
 	onAcceptedClick : function(e) {
 		var tuid = $(this).parents(".his-box").first().attr("data-id");
@@ -62,6 +63,8 @@ od.friend = {
 				od.friend.cache.setPersonlist(data.data.history.data);
 				for(var i=0; i < data.data.history.data.length; i++) {
 					tmpu = data.data.history.data[i];
+					// 渲染聊天窗口
+					od.friend.renderChatContent(tmpu['id']);
 					tmpHtml = '<div class="his-box"  onclick="clicked("home.html","zoom-fade-out",true)"><div class="his-img circle" onclick="clicked(\'home.html\',\'zoom-fade-out\',true)" ><img src="img/ui.png"  class="circle"/></div><div class="his-u"><p>{name}</p></div>';
 					if (data.data.user.sex == 0) {//male
 						if (tmpu.candStatus == 8) {
@@ -111,13 +114,14 @@ od.friend = {
 		od.base.forward('view-chat');
 	},
 	renderChatContent: function(userId) {
-	
+		var obj = $("#chat-cont-"+userId);
+		if (obj.length > 0) return;
 		$("#view-chat .chat-window").append("<div class='chat-content' id='chat-cont-"+userId+"'></div>");
 	},
 	initPage: function() {
 		var uid = od.base.getUid();
 		if (uid === undefined) {
-			alert("请先登录");
+//			alert("请先登录");
 			return;
 		}
 		$.ajax({
@@ -134,10 +138,15 @@ od.friend = {
 		});
 	},
 	getUser: function() {
+		var uid = od.base.getUid(true);
+		if (uid === undefined) {
+			alert("请先登录");
+			return;
+		}
 		$.ajax({
 			type:"get",
 			dataType: "json",
-			url: od.host + "/oneday/user/getUserInfo",
+			url: od.host + "/oneday/user/"+uid,
 			async:true,
 			success: od.friend.onGetUserInfoSuccess,
 			error: function(e){
@@ -149,11 +158,12 @@ od.friend = {
 		
 	},
 	onGetUserInfoSuccess: function(data) {
-		console.log(data);
+//		console.log(data);
 		if (data.code && data.code != "0") {
 			alert(data.message);
 			return;
 		}
+		
 		od.friend.cache.setPersonlist([data.data]);
 	},
 	inits : function() {

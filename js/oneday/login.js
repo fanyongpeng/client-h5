@@ -22,7 +22,9 @@ od.login = {
 		if (!password){
 			return;
 		}
-		var param = {"phone": name, "password": password, "type": 1};
+		var url = getUrlParam("url")||"";
+		
+		var param = {"phone": name, "password": password, "type": 1, "url": url};
 		$.ajax({
 				type:"post",
 				dataType: "json",
@@ -46,17 +48,23 @@ od.login = {
 			return;
 		}
 		var info = data.data;
-		$.cookie('uid',info.id,{expires:360,path:'/'});
+		plus.storage.setItem("uid",info.id+"");
+		plus.storage.setItem("uidStoreTime",""+Date.parse(new Date()));
+//		$.cookie('uid',info.id,{expires:360,path:'/'});
 		if (info && info.url) {
 			window.location = info.url;
 		} else {
 			window.location = "friend.html";
 		}
 		if (info && info.sdktoken) {
-			$.cookie('sdktoken',info.sdktoken,{expires:360,path:'/'});
+			plus.storage.setItem("sdktoken",info.sdktoken);
+//			$.cookie('sdktoken',info.sdktoken,{expires:360,path:'/'});
 		}
 	}
 }
-$(document).ready(function(){
+//$(document).ready(function(){
+//	od.login.inits();
+//});
+document.addEventListener("plusready",function() {
 	od.login.inits();
-});
+},false);

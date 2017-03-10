@@ -5,18 +5,24 @@ od.base = {
 	getUid: function(force) {
 		
 		if (!od.uid) {
-			od.uid = $.cookie('uid');
+//			od.uid = $.cookie('uid');
+			od.uid = plus.storage.getItem("uid");
 		}
 		if (od.uid) {
 			return od.uid;
 		}
 		if(!od.uid && force){
-         	alert("请先登录");
+//       	alert("请先登录");
+         	var callback = window.location.href;
+         	var url = "login.html?url="+encodeURI(url);
+         	plus.webview.open(url,url);
         	return ;
     	}
 		
 	},
 	getUser: function() {
+		var uid = od.base.getUid(true);
+		
 		$.ajax({
 			type:"get",
 			dataType: "json",
@@ -119,7 +125,9 @@ od.base = {
         od.base.initViewPool();
     }
 }
-
 $(document).ready(function(){
-	od.base.inits();
+	document.addEventListener("plusready",function() {
+		od.base.inits();
+	},false);
 });
+

@@ -14,7 +14,7 @@ od.base = {
 		if(!od.uid && force){
 //       	alert("请先登录");
          	var callback = window.location.href;
-         	var url = "login.html?url="+encodeURI(url);
+         	var url = "login.html?url="+encodeURI(callback);
          	plus.webview.open(url,url);
         	return ;
     	}

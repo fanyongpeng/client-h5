@@ -54,9 +54,9 @@ var openw=null,waiting=null;
  */
 w.clicked=function(id,wa,ns,ws){
 	alert(id);
-	if(openw){//避免多次打开同一个页面
-		return null;
-	}
+//	if(openw){//避免多次打开同一个页面
+//		return null;
+//	}
 	
 	if(w.plus){
 		wa&&(waiting=plus.nativeUI.showWaiting());
@@ -67,8 +67,11 @@ w.clicked=function(id,wa,ns,ws){
 		openw=plus.webview.create(pre+id,id,ws);
 		ns||openw.addEventListener('loaded',function(){//页面加载完成后才显示
 //		setTimeout(function(){//延后显示可避免低端机上动画时白屏
+			alert(1);
 			openw.show(as);
+			alert(2);
 			closeWaiting();
+			alert(3);
 //		},200);
 		},false);
 		openw.addEventListener('close',function(){//页面关闭后可再次打开

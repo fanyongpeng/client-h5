@@ -52,9 +52,9 @@ od.login = {
 		plus.storage.setItem("uidStoreTime",""+Date.parse(new Date()));
 //		$.cookie('uid',info.id,{expires:360,path:'/'});
 		if (info && info.url) {
-			window.location = info.url;
+			clicked(info.url);
 		} else {
-			window.location = "friend.html";
+			clicked("friend.html");
 		}
 		if (info && info.sdktoken) {
 			plus.storage.setItem("sdktoken",info.sdktoken);

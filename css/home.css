@@ -31,3 +31,16 @@
 	float: left;
 	width: 60%;
 }
+
+.unread-count {
+	position: absolute;
+    right: 0;
+    top: -10%;
+    width: 25%;
+    height: 25%;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    z-index: 2;
+}

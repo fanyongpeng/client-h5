@@ -53,36 +53,41 @@ var openw=null,waiting=null;
  * @param {JSON} ws : Webview窗口属性
  */
 w.clicked=function(id,wa,ns,ws){
-	alert(id);
-//	if(openw){//避免多次打开同一个页面
-//		return null;
-//	}
-	
 	if(w.plus){
 		wa&&(waiting=plus.nativeUI.showWaiting());
 		ws=ws||{};
 		ws.scrollIndicator||(ws.scrollIndicator='none');
 		ws.scalable||(ws.scalable=false);
 		var pre='';//'http://192.168.1.178:8080/h5/';
-		openw=plus.webview.create(pre+id,id,ws);
-		ns||openw.addEventListener('loaded',function(){//页面加载完成后才显示
-//		setTimeout(function(){//延后显示可避免低端机上动画时白屏
-			alert(1);
-			openw.show(as);
-			alert(2);
-			closeWaiting();
-			alert(3);
-//		},200);
-		},false);
-		openw.addEventListener('close',function(){//页面关闭后可再次打开
-			openw=null;
-		},false);
-		return openw;
+		var view = plus.webview.getWebviewById(id);
+		if (!view) {
+			view = plus.webview.create(pre+id,id,ws);
+		}
+		
+		view.show();
+//		view.addEventListener("dragBounce",onPullStateChange,false);
+		return view;
 	}else{
 		w.open(id);
 	}
 	return null;
 };
+// 下拉状态改变
+w.onPullStateChange = function(e){
+	switch(e.status){
+		case "beforeChangeOffset":
+		console.log("顶部回弹：可继续往下拖拽");
+		break;
+		case "afterChangeOffset":
+		console.log("顶部回弹：松开会重置回弹位置");
+		break;
+		case "dragEndAfterChangeOffset":
+		console.log("顶部回弹：松开停靠回弹");
+		break;
+		default:
+		break;
+	}
+}
 w.openDoc=function(t,c){
 	var d=plus.webview.getWebviewById('document');
 	if(d){
@@ -1066,4 +1071,4 @@ document.addEventListener('DOMContentLoaded', function() {
 }());
 
 od = window.od ||{};
-od.host = od.host || "http://192.168.8.47";
+od.host = od.host || "http://192.168.8.33";

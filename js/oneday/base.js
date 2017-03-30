@@ -1,6 +1,6 @@
 od = window.od ||{};
 od.base = od.base || {};
-od.host = od.host || "http://192.168.8.47";
+od.host = od.host || "http://192.168.8.33";
 od.base = {
 	getUid: function(force) {
 		
